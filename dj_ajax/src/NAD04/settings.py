@@ -37,12 +37,18 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # our own apps
+    # Our own apps
     'posts',
     'profiles',
     # 3rd party apps
     'crispy_forms',
+    # THIS DIDNT EXIST BEFORE the below run
+    'crispy_bootstrap5',
 ]
+
+# 6:50 error - had to run pip install crispy-bootstrap5 and add this
+CRISPY_ALLOWED_TEMPLATE_PACKS = ['bootstrap5']
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
