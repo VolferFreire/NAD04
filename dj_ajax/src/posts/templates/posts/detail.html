@@ -83,4 +83,10 @@
         <div class="spinner-border" role="status"></div>
     </div>
     <div class="mt-1" id="post-box"></div>
+    <hr>
+    <div class="author-name-avatar">
+        <img src="{{obj.author.avatar.url}}" alt="avatar" class="avatar mb-2" style="border-radius: 50%; object-fit: cover;" height="80px" width="80px" />
+        <span class="author-name" style="color: black;">{{obj.author.user.username}}</span>
+    </div>
+    
 {% endblock content %}
