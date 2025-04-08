@@ -5,6 +5,7 @@
 
 {% block scripts %}
     <script src="{% static 'posts/main.js' %}" defer></script>
+
 {% endblock scripts %}
 
 {% block title %}
@@ -28,6 +29,12 @@ posts
                             <button type="button" class="btn btn-danger" data-bs-dismiss="modal">close</button>
                             <button type="submit" class="btn btn-success">+ add</button>
                         </div>                        
+                    </form>
+                    <form action="/upload" class="dropzone dz">
+                        {% csrf_token %}
+                        <div class="fallback">
+                            <input name+"file" type="file" multiple />
+                        </div>
                     </form>
                 </div>
             </div>
