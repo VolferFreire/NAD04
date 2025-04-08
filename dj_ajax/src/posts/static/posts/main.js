@@ -13,7 +13,10 @@ const csrf = document.getElementsByName("csrfmiddlewaretoken");
 const url = window.location.href;
 
 const alertBox = document.getElementById("alert-box");
-console.log("csrf", csrf[0].value);
+
+const dropzone = document.getElementById('my-dropzone')
+const addBtn = document.getElementById('add-btn')
+const closeBtns = [...document.getElementsByClassName('add-modal-close')]
 
 const getCookie = (name) => {
   let cookieValue = null;
@@ -172,9 +175,9 @@ postForm.addEventListener("submit", (e) => {
         `
       );
       likeUnlikePosts();
-      $("#addPostModal").modal("hide");
+      // $("#addPostModal").modal("hide");
       handleAlerts("success", "New Post Added!");
-      postForm.reset();
+      // postForm.reset();
     },
     error: function (error) {
       console.log(error);
@@ -183,4 +186,14 @@ postForm.addEventListener("submit", (e) => {
   });
 });
 
+addBtn.addEventListener('click', () => {
+  dropzone.classList.remove('not-visible')
+})
+
+closeBtns.forEach(btn => btn.addEventListener('click', () => {
+  postForm.reset()
+  if(!dropzone.classList.contains('not-visible')) {
+    dropzone.classList.add('not-visible')
+  }
+}))
 getData();
