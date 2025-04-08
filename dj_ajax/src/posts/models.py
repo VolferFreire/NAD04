@@ -1,7 +1,6 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django .contrib.auth.models import User
 from profiles.models import Profile
-
 # Create your models here.
 
 class Post(models.Model):
@@ -13,11 +12,22 @@ class Post(models.Model):
     created = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return str(self.title) 
+        return str(self.title)
     
     @property
     def like_count(self):
-        return self.liked.count()
+        return self.liked.all().count()
     
-    class Meta: 
+    def get_photos(self):
+        return self.photo_set.all()
+    
+    class Meta:
         ordering = ("-created",)
+        
+class Photo(models.Model):
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to="photos")
+    created = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return f"{self.post.title}-{self.pk}"
