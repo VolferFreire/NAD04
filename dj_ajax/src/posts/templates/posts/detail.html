@@ -84,9 +84,14 @@
     </div>
     <div class="mt-1" id="post-box"></div>
     <hr>
-    <div class="author-name-avatar">
-        <img src="{{obj.author.avatar.url}}" alt="avatar" class="avatar mb-2" style="border-radius: 50%; object-fit: cover;" height="80px" width="80px" />
-        <span class="author-name" style="color: black;">{{obj.author.user.username}}</span>
+    <div class="author-footer d-flex align-items-center p-3 mt-4 border rounded shadow-sm" style="background-color: #f8f9fa;">
+        <img src="{{obj.author.avatar.url}}" alt="avatar"
+             class="rounded-circle me-3"
+             style="object-fit: cover; height: 70px; width: 70px; border: 2px solid #dee2e6;" />
+        <div>
+            <h5 class="mb-0">{{ obj.author.user.username }}</h5>
+            <small class="text-muted">Author</small>
+        </div>
     </div>
     
 {% endblock content %}
